@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Place Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/logbackground.jpg'); /* Replace with a valid URL */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #linksDiv {
+            background-color: brown;
+            padding: 70px;
+            text-transform: none;
+            color: white;
+            text-align: center;
+        }
+        
+        .links {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pizzaLOGO {
+            float: left;
+            width: 175px;
+            height: 150px;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d35400;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-color: #e67e22;
+            outline: none;
+        }
+
+        .login-btn, .register-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-btn:hover, .register-btn:hover {
+            background-color: #d35400;
+        }
+
+        .forgot-password, .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #e67e22;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password:hover, .register-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="index.html"><img class="pizzaLOGO" src="images/Screenshot 2024-12-31 134934.png"></a>
+    </div>
+   
+    <div class="login-container">
+        <h2>Cheese heaven</h2>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+        <a href="#" class="register-link">Don't have an account? Register here</a>
+    </div>
+
+    <div class="login-container" style="margin-top: 20px; display: none;" id="register-container">
+        <h2>Pizza Place Register</h2>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        const registerLink = document.querySelector('.register-link');
+        const loginContainer = document.querySelector('.login-container');
+        const registerContainer = document.querySelector('#register-container');
+
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginContainer.style.display = 'none';
+            registerContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+<!--ahmad hammad id :202313542-->
