@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+header nav {
+    background-color: #df0808;
+    padding: 1rem;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-item {
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.image-item img {
+    width: 250px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    margin: 5% auto;
+    display: block;
+    max-width: 80%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blog-post {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+}
+
+#loadMoreBtn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#loadMoreBtn:hover {
+    background-color: #555;
+}
+footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #df0808;
+        color: white;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    header .logo img {
+        height: 50px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo" />
+            </div>
+            <ul>
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="menu.html">menu</a></li>
+                <li><a href="portofilio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case study.html">Case Studies</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Some articles about pizza
+            </h1>
+        <div id="blogPosts">
+            <div class="blog-post">
+                <h2>Measure Your Personal Pizza Accurately to Select the Right Box</h2>
+                <p>
+                    To ensure your personal pizzas, often a single meal serving, are delivered in prime condition, precise measurement is key. A pizza that measures 6 to 8 inches in diameter, for example, should be paired with a box that not only accommodates its size but also considers the additional space needed for any side items like a salad or extra mozzarella. This attention to detail will not only protect the calorie-rich delight inside but also present it in a way that reflects the care you put into each meal.</p>
+                <a href="https://lansbox.com/pizza-box-dimensions-sizes/">Read more</a>
+            </div>
+            <div class="blog-post">
+                <h2>Compare Small Pizza Box Sizes to Find the Perfect Fit
+                    </h2>
+                <p>When you’re selecting the ideal small pizza box, consider how the diameter of your pizza, whether topped with just cheese or loaded with sausage, impacts taste upon delivery. A snug fit not only preserves the warmth and flavor but also enhances your reputation for quality. For a personal pizza that might accompany a drink, a box that’s too large could lead to unwanted sliding and potential topping loss, while one too small could cause the edges to curl and the crust to soften. Your choice in packaging should mirror the care you put into each pizza, ensuring that from oven to doorstep, the experience remains impeccable..</p>
+                <a href="https://lansbox.com/pizza-box-dimensions-sizes/">Read more</a>
+            </div>
+        </div>
+        <button id="loadMoreBtn" onclick="loadMorePosts()">Load More</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Our Company</p>
+    </footer>
+
+    <script>
+        let postCount = 2;  
+
+        function loadMorePosts() {
+            postCount += 2;
+            const blogPosts = document.getElementById("blogPosts");
+            for (let i = postCount - 2; i < postCount; i++) {
+                const newPost = document.createElement("div");
+                newPost.classList.add("blog-post");
+                newPost.innerHTML = `<h2>Blog Post ${i + 1}</h2><p>Content of blog post ${i + 1}...</p><a href="#">Read more</a>`;
+                blogPosts.appendChild(newPost);
+            }
+        }
+    </script>
+</body>
+</html>
